@@ -7,10 +7,12 @@ package org.iesapp.apps.anuncis;
 import java.awt.MenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import org.iesapp.framework.pluggable.DockingFrameworkApp;
 import org.iesapp.framework.pluggable.SysTray;
+import org.iesapp.framework.pluggable.WindowManager;
 import org.iesapp.framework.util.CoreCfg;
 
 /**
@@ -62,6 +64,12 @@ public class AnuncisApp extends DockingFrameworkApp {
         
     }
  
+    
+    //Define desired window close behaviour
+    @Override
+    public void formWindowClosing(WindowEvent evt) {
+           windowManager.setDisplayMode(WindowManager.MODE_TOOLBAR);
+    }
    
     /**
      * This method is called from within the constructor to initialize the form.
